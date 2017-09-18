@@ -20,16 +20,9 @@ RUN echo 'deb http://code.bitlbee.org/debian/master/jessie/amd64/ ./' > /etc/apt
 RUN apt-get -qy --force-yes update && \
     apt-get -qy --force-yes dist-upgrade && \
     apt-get -qy --force-yes upgrade && \
-    apt-get -qy --force-yes install build-essential libglib2.0-dev libotr5-dev git autoconf libtool gettext libgcrypt20-dev libpurple-dev libwebp-dev build-essential libjson-glib-dev && \
-    apt-get -qy --force-yes install bitlbee-libpurple bitlbee-dev && \
+    apt-get -qy --force-yes install build-essential libglib2.0-dev libotr5-dev git autoconf libtool gettext libgcrypt20-dev libwebp-dev build-essential libjson-glib-dev && \
+    apt-get -qy --force-yes install bitlbee-dev && \
     apt-get -qy --force-yes install bitlbee-steam
-
-RUN git clone --recursive https://github.com/majn/telegram-purple && \
-    cd telegram-purple && \
-    ./configure && \
-    make && \
-    make install && \
-    cd ..
 
 RUN git clone https://github.com/sm00th/bitlbee-discord.git && \
     cd bitlbee-discord && \
